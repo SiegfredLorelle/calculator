@@ -1,7 +1,7 @@
 :root {
   --spacing-size: 0.5rem;
   --display-line-height: 2em;
-  --display-letter-spacing: -0.08em;
+  --display-letter-spacing: -0.05em;
   ---icon-size: ;
   --memory-display-size: 1em;
   --main-display-size: 1.75em;
@@ -38,18 +38,20 @@ div {
 
 .display-screen {
   margin: var(--spacing-size);
-  padding: 0 var(--spacing-size);
-  background-color: red;
-  line-height: var(--display-line-height);
-  letter-spacing: var(--display-letter-spacing);
   font-family: var(--display-font-family);
   font-size: var(--memory-display-size);
+  display: flex;
+  flex-direction: column;
 }
 
 .display-screen > .main-display {
-  text-align: end;
+  line-height: var(--display-line-height);
+  letter-spacing: var(--display-letter-spacing);
+  text-align: right;
   font-size: var(--main-display-size);
-  font-style: italic;
+  /* font-style: italic; */
+  padding: 0 var(--spacing-size);
+  width: 100%;
 }
 
 .buttons-container {
