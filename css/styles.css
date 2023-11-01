@@ -1,0 +1,42 @@
+*, 
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0 auto;
+}
+
+div {
+  background-color: pink;
+}
+/* 
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex.row {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.row {
+  justify-content: space-between;
+} */
+
+.grid {
+  display: grid;
+}
+.buttons-container {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5rem;
+  padding:0.5rem;
+}
+.row > button {
+  width: 100%;
+}
