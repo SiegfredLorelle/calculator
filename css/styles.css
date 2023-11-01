@@ -6,41 +6,44 @@
   padding: 0;
 }
 
-main {
-  margin: 0 auto;
+:root {
+  --spacing-size: 0.5rem;
+  --display-line-height: 1.5em;
+  --display-letter-spacing: 0.2em;
+  ---icon-size: ;
+  --display-size: 1.5em;
 }
 
 div {
   background-color: pink;
 }
-/* 
-.flex {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex.row {
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.row {
-  justify-content: space-between;
-} */
 
 .grid {
   display: grid;
 }
+
+
+.display-screen {
+  margin: var(--spacing-size);
+  background-color: red;
+  font-size: var(--display-size);
+  line-height: var(--display-line-height);
+  letter-spacing: var(--display-letter-spacing);
+}
+.display-screen > p {
+  text-align: end;
+}
+
 .buttons-container {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 0.5rem;
   padding:0.5rem;
 }
+
 .row > button {
   width: 100%;
 }
-
 
 .buttons-container > .plus_btn {
   grid-column: 4;
