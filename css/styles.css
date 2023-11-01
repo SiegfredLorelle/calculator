@@ -63,7 +63,7 @@ div {
   width: 100%;
 }
 
-.buttons-container > .plus_btn {
+.buttons-container > .plus-btn {
   grid-column: 4;
   grid-row: 4 / 6;
 }

@@ -5,6 +5,9 @@ const resetAll = () => {
   // TODO: Fetch current memory
 } 
 
+const deleteLastInput = () => {
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -1);
+}
 
 memoryDisplay = document.querySelector(".memory-display > span");
 mainDisplay = document.querySelector(".main-display > span");
@@ -12,6 +15,11 @@ numBtns = document.querySelectorAll(".num-btn");
 allClearBtn = document.querySelector(".ac-btn");
 backBtn = document.querySelector(".back-btn");
 deciPointBtn = document.querySelector(".deci-point-btn");
+operatorBtns = document.querySelectorAll(".operator-btn");
+
+additionOperators = ["+", "−"];
+multiplicationOperators = ["×", "÷",];
+operators = additionOperators.concat(multiplicationOperators);
 
 resetAll();
 
@@ -27,6 +35,30 @@ numBtns.forEach(btn => {
   })
 });
 
+operatorBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    lastInput = mainDisplay.textContent.at(-1);
+  
+    if (!operators.includes(lastInput)) {
+      mainDisplay.textContent += btn.textContent;
+      return;
+    }
+
+    if (multiplicationOperators.includes(btn.textContent)) {
+      deleteLastInput();
+      mainDisplay.textContent += btn.textContent;
+    }
+    
+    else if (btn.textContent == lastInput) {
+      deleteLastInput();
+      mainDisplay.textContent += "+";
+    }
+    else if (btn.textContent == "+") {}
+
+    else mainDisplay.textContent += btn.textContent;
+  });
+})
+
 
 deciPointBtn.addEventListener("click", () => {
   if (hasDeciPoint) return;
@@ -41,7 +73,7 @@ backBtn.addEventListener("click", () => {
   if (mainDisplay.textContent.at(-1)) {
     hasDeciPoint = false;
   }
-  mainDisplay.textContent = mainDisplay.textContent.slice(0, -1);
+  deleteLastInput();
   if (!mainDisplay.textContent) {
     mainDisplay.textContent = 0;
   }
