@@ -1,3 +1,12 @@
+:root {
+  --spacing-size: 0.5rem;
+  --display-line-height: 1.5em;
+  --display-letter-spacing: -0.02em;
+  ---icon-size: ;
+  --display-size: 1.5em;
+  --display-font-family: 'Raleway', sans-serif;
+}
+
 *, 
 *::before,
 *::after {
@@ -6,12 +15,16 @@
   padding: 0;
 }
 
-:root {
-  --spacing-size: 0.5rem;
-  --display-line-height: 1.5em;
-  --display-letter-spacing: 0.2em;
-  ---icon-size: ;
-  --display-size: 1.5em;
+button {
+  font-family: var(--display-font-family);
+  font-weight: 800;
+  padding-bottom: 0.2rem;
+  font-size: 1em;
+}
+
+button > i {
+  padding-bottom: 0;
+  padding-top: 0.2rem;
 }
 
 div {
@@ -22,14 +35,15 @@ div {
   display: grid;
 }
 
-
 .display-screen {
   margin: var(--spacing-size);
   background-color: red;
   font-size: var(--display-size);
   line-height: var(--display-line-height);
   letter-spacing: var(--display-letter-spacing);
+  font-family: var(--display-font-family);
 }
+
 .display-screen > p {
   text-align: end;
 }
