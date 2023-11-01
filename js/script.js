@@ -1,12 +1,12 @@
 const resetAll = () => {
-  mainDisplay.value = "0";
+  mainDisplay.textContent = "0";
   hasDeciPoint = false;
   console.log("resetting");
   // TODO: Fetch current memory
 } 
 
 const deleteLastInput = () => {
-  mainDisplay.value = mainDisplay.value.slice(0, -1);
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -1);
 }
 
 memoryDisplay = document.querySelector(".memory-display");
@@ -26,44 +26,44 @@ resetAll();
 numBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     console.log(btn.textContent);
-    if (mainDisplay.value == "0") {
-      mainDisplay.value = btn.textContent;
+    if (mainDisplay.textContent == "0") {
+      mainDisplay.textContent = btn.textContent;
     }
     else {
-      mainDisplay.value += btn.textContent;
+      mainDisplay.textContent += btn.textContent;
     }
   })
 });
 
 operatorBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    lastInput = mainDisplay.value.at(-1);
+    lastInput = mainDisplay.textContent.at(-1);
   
     if (!operators.includes(lastInput)) {
-      mainDisplay.value += btn.textContent;
+      mainDisplay.textContent += btn.textContent;
       return;
     }
 
     if (multiplicationOperators.includes(btn.textContent)) {
       deleteLastInput();
-      mainDisplay.value += btn.textContent;
+      mainDisplay.textContent += btn.textContent;
     }
     
     else if (btn.textContent == lastInput) {
       deleteLastInput();
-      mainDisplay.value += "+";
+      mainDisplay.textContent += "+";
       // plusBtn.click();
     }
     else if (btn.textContent == "+") {}
 
-    else mainDisplay.value += btn.textContent;
+    else mainDisplay.textContent += btn.textContent;
   });
 })
 
 
 deciPointBtn.addEventListener("click", () => {
   if (hasDeciPoint) return;
-  mainDisplay.value += ".";
+  mainDisplay.textContent += ".";
   hasDeciPoint = true;
 });
 
@@ -71,12 +71,41 @@ allClearBtn.addEventListener("click", resetAll);
 
 backBtn.addEventListener("click", () => {
   console.log();
-  if (mainDisplay.value.at(-1)) {
+  if (mainDisplay.textContent.at(-1)) {
     hasDeciPoint = false;
   }
   deleteLastInput();
-  if (!mainDisplay.value) {
-    mainDisplay.value = 0;
+  if (!mainDisplay.textContent) {
+    mainDisplay.textContent = 0;
   }
 });
 
+
+mainDisplay.addEventListener("change", (e) => {
+  console.log("CHNAGED", e.target.value);
+});
+
+
+
+prevInputLength = 1;
+// Create a new instance of MutationObserver and pass a callback function
+const observer = new MutationObserver((mutationsList, observer) => {
+  // Handle the changes here
+  console.log('InnerHTML changed:', mainDisplay.innerHTML);
+  if (prevInputLength > mainDisplay.textContent.length) {
+    console.log("Deleted");
+  }
+  else {
+    console.log("Added");
+  }
+  prevInputLength = mainDisplay.textContent.length;
+});
+
+// Define what to observe (in this case, changes to the subtree and the innerHTML property)
+const config = { subtree: true, childList: true, characterData: true };
+
+// Start observing the target element with the specified configuration
+observer.observe(mainDisplay, config);
+
+// Later, you can disconnect the observer when you no longer need it
+// observer.disconnect();
