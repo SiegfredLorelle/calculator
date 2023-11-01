@@ -40,3 +40,9 @@ div {
 .row > button {
   width: 100%;
 }
+
+
+.buttons-container > .plus_btn {
+  grid-column: 4;
+  grid-row: 4 / 6;
+}
