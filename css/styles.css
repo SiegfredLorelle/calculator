@@ -1,11 +1,11 @@
 :root {
   --spacing-size: 0.5rem;
   --display-line-height: 2em;
-  --display-letter-spacing: -0.05em;
+  --display-letter-spacing: -0.08em;
   ---icon-size: ;
   --memory-display-size: 1em;
   --main-display-size: 1.75em;
-  --display-font-family: 'Raleway', sans-serif;
+  --display-font-family: 'Quicksand', sans-serif;
 }
 
 *, 
@@ -38,6 +38,7 @@ div {
 
 .display-screen {
   margin: var(--spacing-size);
+  padding: 0 var(--spacing-size);
   background-color: red;
   line-height: var(--display-line-height);
   letter-spacing: var(--display-letter-spacing);
@@ -48,13 +49,14 @@ div {
 .display-screen > .main-display {
   text-align: end;
   font-size: var(--main-display-size);
+  font-style: italic;
 }
 
 .buttons-container {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 0.5rem;
-  padding:0.5rem;
+  gap: var(--spacing-size);
+  padding:var(--spacing-size);
 }
 
 .row > button {
