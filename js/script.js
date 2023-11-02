@@ -17,6 +17,7 @@ const backBtn = document.querySelector(".back-btn");
 const deciPointBtn = document.querySelector(".deci-point-btn");
 const operatorBtns = document.querySelectorAll(".operator-btn");
 const plusBtn = document.querySelector(".plus-btn");
+const percBtn = document.querySelector(".perc-btn");
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators);
@@ -68,13 +69,29 @@ deciPointBtn.addEventListener("click", () => {
   hasDeciPoint = true;
 });
 
+percBtn.addEventListener("click", () => {
+  prevInput = mainDisplay.textContent.at(-1);
+  if (operators.includes(prevInput)) return;
+  // mainDisplay.textContent
+  lastTerm = findLastTerm(mainDisplay.textContent);
+  console.log(lastTerm);
+  // const reversedInput = reverseString(mainDisplay.textContent);
+  
+});
+
 allClearBtn.addEventListener("click", resetAll);
 backBtn.addEventListener("click", deleteLastInput);
 
 
-// mainDisplay.addEventListener("change", (e) => {
-//   console.log("CHNAGED", e.target.value);
-// });
+const findLastTerm = (input) => {
+
+  let lastTerm = "";
+  for (let i = input.length - 1; i >= 0; i--) {
+    if (operators.includes(input[i])) return lastTerm;
+    lastTerm = input[i] + lastTerm;
+  }
+  return lastTerm;
+}
 
 
 
