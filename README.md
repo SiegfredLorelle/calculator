@@ -5,7 +5,6 @@
 
 ## TODOs
 - equals (solve the display)
-- sqr root
 - binary
 - memory funcs (Ms)
 - follow design of microsoft calc

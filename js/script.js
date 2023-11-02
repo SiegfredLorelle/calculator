@@ -18,6 +18,7 @@ const deciPointBtn = document.querySelector(".deci-point-btn");
 const operatorBtns = document.querySelectorAll(".operator-btn");
 const plusBtn = document.querySelector(".plus-btn");
 const percBtn = document.querySelector(".perc-btn");
+const sqrRootBtn = document.querySelector(".sqr-root-btn");
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators);
@@ -61,6 +62,18 @@ operatorBtns.forEach(btn => {
   });
 })
 
+sqrRootBtn.addEventListener("click", () => {
+  console.log("squarerooting!");
+  const prevInput = mainDisplay.textContent.at(-1);
+  if (operators.includes(prevInput)) return;
+
+  lastTerm = findLastTerm(mainDisplay.textContent);
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
+
+  const sqrRootedTerm = parseFloat(Math.sqrt(lastTerm).toPrecision(12));
+  mainDisplay.textContent += `${sqrRootedTerm}`;
+});
+
 
 deciPointBtn.addEventListener("click", () => {
   // Ensures that there is only one decimal point per term
@@ -70,7 +83,7 @@ deciPointBtn.addEventListener("click", () => {
 });
 
 percBtn.addEventListener("click", () => {
-  prevInput = mainDisplay.textContent.at(-1);
+  const prevInput = mainDisplay.textContent.at(-1);
   if (operators.includes(prevInput)) return;
   // mainDisplay.textContent
   lastTerm = findLastTerm(mainDisplay.textContent);
@@ -78,7 +91,7 @@ percBtn.addEventListener("click", () => {
   // 
   percentedTerm = `${parseFloat(preciseMultiplication(lastTerm, 0.01).toPrecision(12))}`;
   mainDisplay.textContent += percentedTerm;
-  console.log(lastTerm, percentedTerm);
+  // console.log(lastTerm, percentedTerm);
   // const reversedInput = reverseString(mainDisplay.textContent);
   
 });
@@ -88,7 +101,6 @@ backBtn.addEventListener("click", deleteLastInput);
 
 
 const findLastTerm = (input) => {
-
   let lastTerm = "";
   for (let i = input.length - 1; i >= 0; i--) {
     if (operators.includes(input[i])) return lastTerm;
