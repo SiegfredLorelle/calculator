@@ -9,9 +9,7 @@
 - memory funcs (Ms)
 - follow design of microsoft calc
     - 1/x
-    - squared
     - +/-
-    - 
 - history and memory
 - color
 - responsiveness

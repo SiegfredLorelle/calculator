@@ -20,6 +20,8 @@ const plusBtn = document.querySelector(".plus-btn");
 const percBtn = document.querySelector(".perc-btn");
 const sqrRootBtn = document.querySelector(".sqr-root-btn");
 const sqrBtn = document.querySelector(".sqr-btn");
+const reciprocalBtn = document.querySelector(".reciprocal-btn");
+
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators);
@@ -67,6 +69,18 @@ sqrRootBtn.addEventListener("click", () => {
 
   const sqrRootedTerm = parseFloat(Math.sqrt(lastTerm).toPrecision(12));
   mainDisplay.textContent += `${sqrRootedTerm}`;
+});
+
+
+reciprocalBtn.addEventListener("click", () => {
+  const prevInput = mainDisplay.textContent.at(-1);
+  if (operators.includes(prevInput)) return;
+
+  lastTerm = findLastTerm(mainDisplay.textContent);
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
+
+  const reciprocaledTerm = parseFloat((1/lastTerm).toPrecision(12));
+  mainDisplay.textContent += `${reciprocaledTerm}`;
 });
 
 
