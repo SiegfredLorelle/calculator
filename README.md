@@ -8,8 +8,8 @@
 - binary
 - memory funcs (Ms)
 - follow design of microsoft calc
-    - 1/x
     - +/-
+        - cancel minus 0s
 - history and memory
 - color
 - responsiveness

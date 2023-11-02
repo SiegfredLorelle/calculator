@@ -21,6 +21,7 @@ const percBtn = document.querySelector(".perc-btn");
 const sqrRootBtn = document.querySelector(".sqr-root-btn");
 const sqrBtn = document.querySelector(".sqr-btn");
 const reciprocalBtn = document.querySelector(".reciprocal-btn");
+const changeSignBtn = document.querySelector(".change-sign-btn");
 
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
@@ -46,6 +47,22 @@ operatorBtns.forEach(btn => {
     mainDisplay.textContent += btn.textContent;
   });
 })
+
+changeSignBtn.addEventListener("click", () => {
+  const prevInput = mainDisplay.textContent.at(-1);
+  if (operators.includes(prevInput)) return;
+
+  lastTerm = findLastTerm(mainDisplay.textContent);
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
+
+  // const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
+  // mainDisplay.textContent += `${sqredTerm}`;
+  addTextInDisplay(`−`); 
+  simplifyOperators();
+  mainDisplay.textContent += lastTerm;
+  // addTextInDisplay("-"); 
+
+});
 
 sqrBtn.addEventListener("click", () => {
   const prevInput = mainDisplay.textContent.at(-1);
@@ -168,10 +185,10 @@ const addTextInDisplay = (textToAdd) => {
   mainDisplay.textContent += textToAdd;
 }
 
-const simplifyOperators = () => {
+const simplifyOperators = (indexOfCurrentOperator = -1) => {
   if (mainDisplay.textContent.length <= 1) return;
-  const currentInput = mainDisplay.textContent.at(-1);
-  const prevInput = mainDisplay.textContent.at(-2);
+  const currentInput = mainDisplay.textContent.at(indexOfCurrentOperator);
+  const prevInput = mainDisplay.textContent.at(indexOfCurrentOperator - 1);
   // console.log(prevInput, currentInput);
 
   if (!operators.includes(prevInput)) return;
