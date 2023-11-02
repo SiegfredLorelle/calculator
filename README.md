@@ -5,9 +5,10 @@
 
 ## TODOs
 - equals (solve the display)
-- binary
+- binary (solve before converting to binary)
 - memory funcs (Ms)
 - follow design of microsoft calc
 - history and memory
 - color
 - responsiveness
+- solve realtime
