@@ -74,7 +74,11 @@ percBtn.addEventListener("click", () => {
   if (operators.includes(prevInput)) return;
   // mainDisplay.textContent
   lastTerm = findLastTerm(mainDisplay.textContent);
-  console.log(lastTerm);
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
+  // 
+  percentedTerm = `${parseFloat(preciseMultiplication(lastTerm, 0.01).toPrecision(12))}`;
+  mainDisplay.textContent += percentedTerm;
+  console.log(lastTerm, percentedTerm);
   // const reversedInput = reverseString(mainDisplay.textContent);
   
 });
@@ -93,9 +97,14 @@ const findLastTerm = (input) => {
   return lastTerm;
 }
 
+const preciseMultiplication = (num1, num2) => {
+  const multiplier = 10**12;
+  const result = (num1 * multiplier) * (num2 * multiplier);
+  return result / (multiplier**2);
+}
 
 
-prevInputLength = 1;
+let prevInputLength = 1;
 // Create a new instance of MutationObserver and pass a callback function
 const observer = new MutationObserver(() => {
   let currentDisplayLength = mainDisplay.textContent.length;
