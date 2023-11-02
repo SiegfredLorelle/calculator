@@ -4,7 +4,7 @@
 ---
 
 ## TODOs
-- equals (solve the display)
+- equals (test floating pt impercision)
 - binary (solve before converting to binary)
 - memory funcs (Ms)
 - follow design of microsoft calc

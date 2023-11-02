@@ -9,7 +9,20 @@ const deleteLastInput = () => {
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -1);
 }
 
-const memoryDisplay = document.querySelector(".memory-display");
+const solveAnswer = () => {
+  let expression = "";
+  for (const char of mainDisplay.textContent) {
+    if (char === "−") expression += "-";
+    else if (char === "×") expression += "*";
+    else if (char === "÷") expression += "/";
+    else expression += char;
+  }
+  ans = eval(expression)
+  answerDisplay.textContent += ans;
+  return ans;
+}
+
+const answerDisplay = document.querySelector(".answer-display");
 const mainDisplay = document.querySelector(".main-display");
 const numBtns = document.querySelectorAll(".num-btn");
 const allClearBtn = document.querySelector(".ac-btn");
@@ -23,6 +36,9 @@ const sqrBtn = document.querySelector(".sqr-btn");
 const reciprocalBtn = document.querySelector(".reciprocal-btn");
 const changeSignBtn = document.querySelector(".change-sign-btn");
 const binaryBtn = document.querySelector(".binary-btn");
+const solveBtn = document.querySelector(".solve-btn");
+
+
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators);
@@ -47,6 +63,13 @@ operatorBtns.forEach(btn => {
     mainDisplay.textContent += btn.textContent;
   });
 })
+
+solveBtn.addEventListener("click", () => {
+  // console.log("Solving");
+  
+  ans = solveAnswer();
+  mainDisplay.textContent = ans;
+});
 
 binaryBtn.addEventListener("click", () => { 
   // TODO: solve first before converting to binary
