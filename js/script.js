@@ -53,11 +53,16 @@ changeSignBtn.addEventListener("click", () => {
   if (operators.includes(prevInput)) return;
 
   const lastTerm = findLastTerm(mainDisplay.textContent);
-  console.log(parseFloat(lastTerm));
+  // console.log(parseFloat(lastTerm));
   if (parseFloat(lastTerm) === 0) return;
 
+  
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
-
+  
+  if (mainDisplay.textContent[0] === "−") {
+    mainDisplay.textContent = lastTerm;
+    return;
+  }
   // const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
   // mainDisplay.textContent += `${sqredTerm}`;
   addTextInDisplay(`−`); 
