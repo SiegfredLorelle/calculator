@@ -5,11 +5,9 @@
 
 ## TODOs
 - equals (test floating pt impercision)
-- binary (solve before converting to binary)
 - memory funcs (Ms)
-- follow design of microsoft calc
 - history and memory
+- follow design of microsoft calc
 - color
 - responsiveness
-- solve realtime
 - add commas
