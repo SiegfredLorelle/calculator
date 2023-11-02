@@ -19,6 +19,7 @@ const operatorBtns = document.querySelectorAll(".operator-btn");
 const plusBtn = document.querySelector(".plus-btn");
 const percBtn = document.querySelector(".perc-btn");
 const sqrRootBtn = document.querySelector(".sqr-root-btn");
+const sqrBtn = document.querySelector(".sqr-btn");
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators);
@@ -40,27 +41,21 @@ numBtns.forEach(btn => {
 operatorBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     lastInput = mainDisplay.textContent.at(-1);
-  
-  //   if (!operators.includes(lastInput)) {
-  //     mainDisplay.textContent += btn.textContent;
-  //     return;
-  //   }
-
-  //   if (multiplicationOperators.includes(btn.textContent)) {
-  //     deleteLastInput();
-  //     mainDisplay.textContent += btn.textContent;
-  //   }
-    
-  //   else if (btn.textContent == lastInput) {
-  //     deleteLastInput();
-  //     mainDisplay.textContent += "+";
-  //     // plusBtn.click();
-  //   }
-  //   else if (btn.textContent == "+") {}
-
     mainDisplay.textContent += btn.textContent;
   });
 })
+
+sqrBtn.addEventListener("click", () => {
+  const prevInput = mainDisplay.textContent.at(-1);
+  if (operators.includes(prevInput)) return;
+
+  lastTerm = findLastTerm(mainDisplay.textContent);
+  mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
+
+  const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
+  mainDisplay.textContent += `${sqredTerm}`;
+  
+});
 
 sqrRootBtn.addEventListener("click", () => {
   console.log("squarerooting!");
