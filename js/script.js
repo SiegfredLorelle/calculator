@@ -22,7 +22,7 @@ const sqrRootBtn = document.querySelector(".sqr-root-btn");
 const sqrBtn = document.querySelector(".sqr-btn");
 const reciprocalBtn = document.querySelector(".reciprocal-btn");
 const changeSignBtn = document.querySelector(".change-sign-btn");
-
+const binaryBtn = document.querySelector(".binary-btn");
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators);
@@ -47,6 +47,12 @@ operatorBtns.forEach(btn => {
     mainDisplay.textContent += btn.textContent;
   });
 })
+
+binaryBtn.addEventListener("click", () => { 
+  // TODO: solve first before converting to binary
+  mainDisplay.textContent = parseFloat(mainDisplay.textContent).toString(2);
+});
+
 
 changeSignBtn.addEventListener("click", () => {
   const prevInput = mainDisplay.textContent.at(-1);
