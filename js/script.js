@@ -52,7 +52,10 @@ changeSignBtn.addEventListener("click", () => {
   const prevInput = mainDisplay.textContent.at(-1);
   if (operators.includes(prevInput)) return;
 
-  lastTerm = findLastTerm(mainDisplay.textContent);
+  const lastTerm = findLastTerm(mainDisplay.textContent);
+  console.log(parseFloat(lastTerm));
+  if (parseFloat(lastTerm) === 0) return;
+
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
 
   // const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
@@ -94,6 +97,7 @@ reciprocalBtn.addEventListener("click", () => {
   if (operators.includes(prevInput)) return;
 
   lastTerm = findLastTerm(mainDisplay.textContent);
+
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
 
   const reciprocaledTerm = parseFloat((1/lastTerm).toPrecision(12));
