@@ -5,7 +5,6 @@
 
 ## TODOs
 - equals (solve the display)
-- perc
 - sqr root
 - binary
 - memory funcs (Ms)

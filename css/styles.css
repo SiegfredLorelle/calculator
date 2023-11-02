@@ -28,8 +28,14 @@ button > i {
   padding-top: 0.2rem;
 }
 
+
 div {
   background-color: pink;
+}
+
+sup,
+sub {
+  font-size: 0.75em;
 }
 
 .grid {
