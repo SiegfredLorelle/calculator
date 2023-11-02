@@ -18,9 +18,15 @@ const solveAnswer = () => {
     else if (char === "÷") expression += "/";
     else expression += char;
   }
-  ans = parseFloat(eval(expression).toPrecision(12));
-  answerDisplay.textContent = `=${ans}`;
-  return ans;
+  try {
+    ans = parseFloat(eval(expression).toPrecision(12));
+    answerDisplay.textContent = `=${ans}`;
+    return ans;
+  }
+  catch {
+    return answerDisplay.textContent.slice(1);
+    // answerDisplay.textContent = "=";
+  }
 }
 
 const answerDisplay = document.querySelector(".answer-display");
@@ -73,8 +79,8 @@ solveBtn.addEventListener("click", () => {
 });
 
 binaryBtn.addEventListener("click", () => { 
-  // TODO: solve first before converting to binary
-  mainDisplay.textContent = parseFloat(mainDisplay.textContent).toString(2);
+  const ans = solveAnswer();
+  mainDisplay.textContent = parseFloat(ans).toString(2);
 });
 
 
