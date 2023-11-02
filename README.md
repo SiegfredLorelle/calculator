@@ -12,3 +12,4 @@
 - color
 - responsiveness
 - solve realtime
+- add commas

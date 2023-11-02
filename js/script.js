@@ -1,5 +1,6 @@
 const resetAll = () => {
   mainDisplay.textContent = "0";
+  answerDisplay.textContent = "=";
   hasDeciPoint = false;
   console.log("resetting");
   // TODO: Fetch current memory
@@ -17,8 +18,8 @@ const solveAnswer = () => {
     else if (char === "÷") expression += "/";
     else expression += char;
   }
-  ans = eval(expression)
-  answerDisplay.textContent += ans;
+  ans = parseFloat(eval(expression).toPrecision(12));
+  answerDisplay.textContent = `=${ans}`;
   return ans;
 }
 
@@ -206,6 +207,7 @@ const observer = new MutationObserver(() => {
       simplifyOperators();
     }
 
+    solveAnswer();
   }
   // Update prev input length
   prevInputLength = currentDisplayLength;
