@@ -167,6 +167,19 @@ memoryClearBtn.addEventListener("click", () => {
   updateMemory(memory);
 });
 
+
+memoryRecallBtn.addEventListener("click", () => {
+  // Get first term
+  const prevInput = mainDisplay.textContent.at(-1);
+  if (!operators.includes(prevInput)) {
+    lastTerm = findLastTerm(mainDisplay.textContent);
+    mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
+  }
+
+  // const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
+  mainDisplay.textContent += `${memory}`;
+});
+
 binaryBtn.addEventListener("click", () => { 
   const ans = solveAnswer();
   mainDisplay.textContent = parseFloat(ans).toString(2);
