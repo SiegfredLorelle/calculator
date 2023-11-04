@@ -16,9 +16,14 @@
   padding: 0;
 }
 
+/* html {
+
+  max-height: 100dvh;
+} */
+
 body {
   display: flex;
-  max-height: 100dvh;
+  height: 100dvh;
   font-family: var(--display-font-family);
   gap: var(--spacing-size)
 
@@ -37,6 +42,7 @@ aside {
   position:absolute;
   z-index: 1;
   background-color: red;
+  height: 100dvh;
 }
 
 aside.desktop {
@@ -136,12 +142,6 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   text-align: right;
 }
 
-/* .desktop {
-  
-
-} */
-
-
 .answer-display-container {
   background-color: violet;
   font-style: italic;
@@ -155,11 +155,12 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
 }
 
 .display-screen {
-  margin: var(--spacing-size);
+  /* margin: var(--spacing-size); */
   display: flex;
   flex-direction: column;
   line-height: var(--display-line-height);
   letter-spacing: var(--display-letter-spacing);
+  height: 20%;
 }
 
 .display-screen > .main-display {
@@ -170,6 +171,7 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   font-style: italic;
   padding: 0 var(--spacing-size);
   width: 100%;
+
 }
 
 .buttons-container {
@@ -177,6 +179,8 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   grid-template-rows: repeat(5, 1fr);
   gap: var(--spacing-size);
   padding:var(--spacing-size);
+  height: 80%;
+
 }
 
 .row > button {

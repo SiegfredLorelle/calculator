@@ -1,5 +1,6 @@
 const aside = document.querySelector("aside");
-const updateResponsiveness = () => {
+
+const changeLayout = () => {
   console.log("RESIZING!");
 
   if (window.innerWidth > window.innerHeight) {
@@ -14,8 +15,7 @@ const updateResponsiveness = () => {
   aside.classList.add("slide-to-left");
   aside.classList.remove("slide-to-right");
   aside.classList.remove("desktop");
-
-
 }
 
-window.addEventListener("resize", updateResponsiveness);
+window.addEventListener("resize", changeLayout);
+changeLayout();

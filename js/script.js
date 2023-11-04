@@ -138,7 +138,6 @@ solveBtn.addEventListener("click", () => {
   
   ans = solveAnswer();
   updateHistory(ans);
-  
   // TODO: Save sa history
   
   mainDisplay.textContent = ans;
