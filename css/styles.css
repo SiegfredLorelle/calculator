@@ -16,6 +16,20 @@
   padding: 0;
 }
 
+body {
+  display: flex;
+  height: 100dvh;
+  font-family: var(--display-font-family);
+
+}
+
+aside {
+  width: 25%;
+}
+
+main {
+  width: 100%;
+}
 button {
   font-family: var(--display-font-family);
   font-weight: 800;
@@ -51,9 +65,11 @@ sub {
 
 .answer-display-container {
   background-color: violet;
+  font-style: italic;
+
 }
 
-.answer-display-container > button {
+.transparent-bg-btn {
   border: 0;
   padding: 0 0.5rem;
   background-color: transparent;
@@ -68,7 +84,7 @@ sub {
 }
 
 .display-screen > .main-display {
-  font-family: var(--display-font-family);
+  /* font-family: var(--display-font-family); */
   font-size: var(--memory-display-size);
   text-align: right;
   font-size: var(--main-display-size);
