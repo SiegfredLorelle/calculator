@@ -17,6 +17,11 @@
 
   --bg-clr: #18191a;
   --btn-clr: #242526;
+  --btn--highlight-clr:rgb(43, 45, 46);
+  --btn-num-clr: #353535;
+  --btn-num-highlight-clr:rgb(65, 65, 65);
+  --btn-equals-clr: rgb(189, 177, 109);
+  --btn-equals-highlight-clr: rgb(206, 193, 120);
   --text-main-clr: #e3e2e9;
   --text-sub-clr: #7c7c7e;
 }
@@ -203,13 +208,15 @@ button.menu-btn {
   color: var(--text-main-clr);
   background-color: var(--bg-clr);
 }
-.menu-btn-container > 
 .menu-btn:hover {
-  background-color: antiquewhite;
+  background-color: var(--btn-clr);
 }
+
+
 
 .menu-btn-container > button {
   color: var(--text-main-clr);
+  background-color: pink;
 }
 .display-screen > .main-display-container {
   height:65%;
@@ -249,6 +256,24 @@ button.menu-btn {
   padding: 10px;
 }
 
+.buttons-container > button:hover {
+  background-color: var(--btn--highlight-clr);
+}
+
+.buttons-container > button.num-btn {
+  background-color: var(--btn-num-clr);
+}
+.buttons-container > button.num-btn:hover {
+  background-color: var(--btn-num-highlight-clr);
+}
+
+.buttons-container > button.solve-btn {
+  background-color: var(--btn-equals-clr);
+  color: var(--btn-clr);
+}
+.buttons-container > button.solve-btn:hover {
+  background-color: var(--btn-equals-highlight-clr);
+}
 /* 
 .row > button {
   width: 100%;
