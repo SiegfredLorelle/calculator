@@ -213,8 +213,9 @@ const observer = new MutationObserver(() => {
       simplifyOperators();
     }
 
-    solveAnswer();
   }
+  
+  solveAnswer();
   // Update prev input length
   prevInputLength = currentDisplayLength;
 });
