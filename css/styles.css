@@ -135,7 +135,8 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
 
 .flex {
   display: flex;
-  justify-content: start;
+  justify-content: center;
+  align-items: center;
 }
 
 .align-left {
@@ -145,7 +146,9 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
 .answer-display-container {
   background-color: violet;
   font-style: italic;
-
+  height: 35%;
+  text-align: center;
+  justify-content: start;
 }
 
 .transparent-bg-btn {
@@ -163,20 +166,25 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   height: 20%;
 }
 
-.display-screen > .main-display {
+.display-screen > .main-display-container {
+  height:65%;
+}
+
+.display-screen > .main-display-container > .main-display {
   /* font-family: var(--display-font-family); */
   font-size: var(--memory-display-size);
   text-align: right;
   font-size: var(--main-display-size);
   font-style: italic;
-  padding: 0 var(--spacing-size);
+  padding: var(--spacing-size);
   width: 100%;
-
+  align-self: end;
 }
 
 .buttons-container {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
   gap: var(--spacing-size);
   padding:var(--spacing-size);
   height: 80%;
@@ -187,7 +195,8 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   width: 100%;
 }
 
-.buttons-container > .plus-btn {
-  grid-column: 4;
-  grid-row: 5 / 7;
+
+.buttons-container > .solve-btn {
+  grid-column: 4 / 6;
+  grid-row: 6;
 }
