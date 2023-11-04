@@ -14,6 +14,11 @@
   --s-fs: calc(1.25em + 1vw);
   --xs-fs: calc(0.75em + 1vw);
   --xxs-fs: calc(0.5em + 1vw);
+
+  --bg-clr: #18191a;
+  --btn-clr: #242526;
+  --text-main-clr: #e3e2e9;
+  --text-sub-clr: #7c7c7e;
 }
 
 *, 
@@ -33,13 +38,16 @@ body {
   display: flex;
   height: 100dvh;
   font-family: var(--display-font-family);
-  gap: var(--spacing-size);
   overflow: hidden;
 }
 
 body > * {
   height: auto;
+}
 
+
+button {
+  border: 0;
 }
 
 aside {
@@ -69,11 +77,11 @@ aside.desktop > * {
 } */
 
 .slide-to-left {
-  animation: slide-to-left 0.5s ease-in-out both;
+  animation: slide-to-left 0.25s ease-in-out both;
 }
 
 .slide-to-right {
-  animation: slide-to-right 0.5s ease-in-out both;
+  animation: slide-to-right 0.25s ease-in-out both;
 }
 
 @keyframes slide-to-left {
@@ -111,9 +119,6 @@ button > i {
 }
 
 
-div {
-  background-color: pink;
-}
 
   /* sup,
   sub {
@@ -162,26 +167,16 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
 }
 
 .answer-display-container {
-  background-color: violet;
-  font-style: italic;
+  /* background-color: violet; */
+  /* font-style: italic; */
   height: 35%;
   text-align: center;
   justify-content: space-between;
   padding-right: var(--spacing-size);
+
 }
 
-button.menu-btn {
-  border: 0;
-  padding: 0.75rem;
-  background-color: transparent;
-  /* width: 5rem; */
-  font-size: var(--reg-fs);
-  border-radius: 20px;
-}
 
-.menu-btn:hover {
-  background-color: antiquewhite;
-}
 
 .display-screen {
   /* margin: var(--spacing-size); */
@@ -190,13 +185,32 @@ button.menu-btn {
   line-height: var(--display-line-height);
   letter-spacing: var(--display-letter-spacing);
   height: 30%;
+  background-color: var(--bg-clr);
+  color: #dbdde2;
 }
 
 .menu-btn-container {
   height: 10%;
   justify-content: end;
+  /* color: var(--text-main-clr); */
 }
 
+button.menu-btn {
+  border: 0;
+  padding: 0.75rem;
+  font-size: var(--reg-fs);
+  border-radius: 20px;
+  color: var(--text-main-clr);
+  background-color: var(--bg-clr);
+}
+.menu-btn-container > 
+.menu-btn:hover {
+  background-color: antiquewhite;
+}
+
+.menu-btn-container > button {
+  color: var(--text-main-clr);
+}
 .display-screen > .main-display-container {
   height:65%;
 }
@@ -208,26 +222,37 @@ button.menu-btn {
   padding: 2rem;
   width: 100%;
   align-self: end;
+  
 }
 
 .display-screen > .answer-display-container > .answer-display {
   font-size: var(--l-fs);
-
+  color: var(--text-sub-clr);
 }
 
 .buttons-container {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-auto-rows: 1fr;
-  gap: var(--spacing-size);
-  padding:var(--spacing-size);
+  grid-gap: 0.25rem;
+  padding:0.25rem;
+  /* margin:0.05rem; */
   height: 70%;
+  background-color: var(--bg-clr);
 
 }
 
+.buttons-container > button {
+  border-radius: 15px;
+  background-color: var(--btn-clr);
+  color: #dbdde2;
+  padding: 10px;
+}
+
+/* 
 .row > button {
   width: 100%;
-}
+} */
 
 
 .buttons-container > .solve-btn {
