@@ -177,10 +177,6 @@ memoryRecallBtn.addEventListener("click", () => {
   }
 
   memory.toString().includes(".") ? hasDeciPoint = true : hasDeciPoint = false;
-  // if (memory.toString().includes(".")) {
-  //   hasDeciPoint = false;
-  // }
-  // else hasl
 
   mainDisplay.textContent += `${memory}`;
 });
@@ -219,10 +215,15 @@ sqrBtn.addEventListener("click", () => {
   const prevInput = mainDisplay.textContent.at(-1);
   if (operators.includes(prevInput)) return;
 
-  lastTerm = findLastTerm(mainDisplay.textContent);
+  const lastTerm = findLastTerm(mainDisplay.textContent);
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
 
+  
+  
   const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
+  
+  sqredTerm.toString().includes(".") ? hasDeciPoint = true : hasDeciPoint = false;
+  
   mainDisplay.textContent += `${sqredTerm}`;
   
 });
@@ -232,10 +233,15 @@ sqrRootBtn.addEventListener("click", () => {
   const prevInput = mainDisplay.textContent.at(-1);
   if (operators.includes(prevInput)) return;
 
-  lastTerm = findLastTerm(mainDisplay.textContent);
+  const lastTerm = findLastTerm(mainDisplay.textContent);
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
 
+  
   const sqrRootedTerm = parseFloat(Math.sqrt(lastTerm).toPrecision(12));
+
+  // console.log(sqrRootedTerm);
+  sqrRootedTerm.toString().includes(".") ? hasDeciPoint = true : hasDeciPoint = false;
+
   mainDisplay.textContent += `${sqrRootedTerm}`;
 });
 
@@ -249,6 +255,9 @@ reciprocalBtn.addEventListener("click", () => {
   mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
 
   const reciprocaledTerm = parseFloat((1/lastTerm).toPrecision(12));
+
+  reciprocaledTerm.toString().includes(".") ? hasDeciPoint = true : hasDeciPoint = false;
+
   mainDisplay.textContent += `${reciprocaledTerm}`;
 });
 

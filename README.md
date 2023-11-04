@@ -17,3 +17,5 @@
 - responsiveness
 - ui
 - add commas
+- error with 3x. sqr->root
+- nakakapag type after e raised to
