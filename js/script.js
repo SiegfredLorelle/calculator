@@ -35,13 +35,12 @@ const updateHistory = (ans) => {
     "input": mainDisplay.textContent,
     "ans": ans,
   }
-  history.push(historyObj);
+  history.unshift(historyObj);
   
   localStorage.setItem("history", JSON.stringify(history));
 
   historyDisplay.replaceChildren();
-
-
+  writeHistory();
 };
 
 const writeHistory = () => {

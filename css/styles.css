@@ -18,13 +18,14 @@
 
 body {
   display: flex;
-  height: 100dvh;
+  max-height: 100dvh;
   font-family: var(--display-font-family);
+  gap: var(--spacing-size)
 
 }
 
 aside {
-  width: 25%;
+  width: 20%;
 }
 
 main {
@@ -52,6 +53,28 @@ sub {
   font-size: 0.75em;
 }
 
+aside > table {
+  width: 100%;
+}
+
+aside > table > thead {
+  text-align: left;
+}
+
+aside > table > tbody {
+  text-align: right;
+}
+
+aside > table > tbody > tr:nth-child(odd) > td {
+  /* color: pink; */
+  font-size: var(--memory-display-size);
+}
+
+aside > table > tbody > tr:nth-child(even) > td {
+  font-size: var(--main-display-size);
+  padding-bottom: var(--spacing-size);
+}
+
 .grid {
   display: grid;
 }
@@ -61,7 +84,9 @@ sub {
   justify-content: start;
 }
 
-
+.align-left {
+  text-align: right;
+}
 
 .answer-display-container {
   background-color: violet;
