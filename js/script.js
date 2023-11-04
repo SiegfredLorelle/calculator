@@ -176,7 +176,12 @@ memoryRecallBtn.addEventListener("click", () => {
     mainDisplay.textContent = mainDisplay.textContent.slice(0, -lastTerm.length);
   }
 
-  // const sqredTerm = parseFloat(Math.pow(lastTerm, 2).toPrecision(12));
+  memory.toString().includes(".") ? hasDeciPoint = true : hasDeciPoint = false;
+  // if (memory.toString().includes(".")) {
+  //   hasDeciPoint = false;
+  // }
+  // else hasl
+
   mainDisplay.textContent += `${memory}`;
 });
 
