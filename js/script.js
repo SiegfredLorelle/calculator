@@ -151,13 +151,13 @@ memoryStoreBtn.addEventListener("click", () => {
 
 memoryAddBtn.addEventListener("click", () => {
   numToAdd = solveAnswer();
-  memory += parseFloat(numToAdd);
+  memory = parseFloat(memory) + parseFloat(numToAdd);
   updateMemory(memory);
 });
 
 memoryMinusBtn.addEventListener("click", () => {
   numToAdd = solveAnswer();
-  memory -= numToAdd;
+  memory = parseFloat(memory) - parseFloat(numToAdd);
   updateMemory(memory);
 });
 

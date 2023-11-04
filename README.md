@@ -7,9 +7,11 @@
 - history and memory
     - color of inputs sa history
     - clear history and memory
-    - scrollable history with overflow
-    - slide on click ng hamburger
     - do no add to history kapag same
+    - hide menu btn kapag nakadesktop, kasi naka autoshow yon
+- shake screen kapag error
+- overflow ng display
+- close menu pag pumindot sa labas
 - follow design of microsoft calc
 - color
 - responsiveness

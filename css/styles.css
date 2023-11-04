@@ -3,9 +3,17 @@
   --display-line-height: 2em;
   --display-letter-spacing: -0.08em;
   ---icon-size: ;
-  --memory-display-size: 1em;
-  --main-display-size: 1.75em;
+  /* --xxs-fs: 1em; */
+  /* --reg-fs: 1.75em; */
   --display-font-family: 'Quicksand', sans-serif;
+  
+  --xxl-fs: calc(3em + 1vw);
+  --xl-fs: calc(2em + 1vw);
+  --l-fs: calc(1em + 1vw);
+  --reg-fs: calc(1.5em + 1vw);
+  --s-fs: calc(1.25em + 1vw);
+  --xs-fs: calc(0.75em + 1vw);
+  --xxs-fs: calc(0.5em + 1vw);
 }
 
 *, 
@@ -25,12 +33,11 @@ body {
   display: flex;
   height: 100dvh;
   font-family: var(--display-font-family);
-  gap: var(--spacing-size)
-
+  gap: var(--spacing-size);
+  overflow: hidden;
 }
 
 body > * {
-  overflow-y: scroll;
   height: auto;
 
 }
@@ -45,6 +52,7 @@ aside {
   height: 100dvh;
   flex-direction: column;
   text-align: left;
+  overflow-y: scroll;
 }
 
 aside.desktop {
@@ -89,11 +97,12 @@ aside.desktop > * {
 main {
   width: 100%;
 }
+
 button {
   font-family: var(--display-font-family);
   font-weight: 800;
   padding-bottom: 0.2rem;
-  font-size: 1em;
+  font-size: var(--xxs-fs);
 }
 
 button > i {
@@ -106,10 +115,10 @@ div {
   background-color: pink;
 }
 
-sup,
-sub {
-  font-size: 0.75em;
-}
+  /* sup,
+  sub {
+    font-size: 0.75em;
+  } */
 
 aside > table {
   width: 100%;
@@ -128,13 +137,13 @@ aside > table > tbody {
 
 aside > table > thead > tr > th,
 aside > table > tbody > tr > td {
-  font-size: var(--main-display-size);
+  font-size: var(--reg-fs);
 }
 
 aside > table.history-table > tbody > tr:nth-child(odd) > td {
   /* color: pink; */
   padding-top: var(--spacing-size);
-  font-size: var(--memory-display-size);
+  font-size: var(--xxs-fs);
 }
 
 
@@ -157,15 +166,16 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   font-style: italic;
   height: 35%;
   text-align: center;
-  justify-content: start;
+  justify-content: space-between;
+  padding-right: var(--spacing-size);
 }
 
-.menu-btn {
+button.menu-btn {
   border: 0;
   padding: 0.75rem;
   background-color: transparent;
   /* width: 5rem; */
-  font-size: var(--main-display-size);
+  font-size: var(--reg-fs);
   border-radius: 20px;
 }
 
@@ -179,7 +189,12 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   flex-direction: column;
   line-height: var(--display-line-height);
   letter-spacing: var(--display-letter-spacing);
-  height: 20%;
+  height: 30%;
+}
+
+.menu-btn-container {
+  height: 10%;
+  justify-content: end;
 }
 
 .display-screen > .main-display-container {
@@ -187,14 +202,17 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
 }
 
 .display-screen > .main-display-container > .main-display {
-  /* font-family: var(--display-font-family); */
-  font-size: var(--memory-display-size);
   text-align: right;
-  font-size: var(--main-display-size);
+  font-size: var(--xxl-fs);
   font-style: italic;
-  padding: var(--spacing-size);
+  padding: 2rem;
   width: 100%;
   align-self: end;
+}
+
+.display-screen > .answer-display-container > .answer-display {
+  font-size: var(--l-fs);
+
 }
 
 .buttons-container {
@@ -203,7 +221,7 @@ aside > table.history-table > tbody > tr:nth-child(odd) > td {
   grid-auto-rows: 1fr;
   gap: var(--spacing-size);
   padding:var(--spacing-size);
-  height: 80%;
+  height: 70%;
 
 }
 
