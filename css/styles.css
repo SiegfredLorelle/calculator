@@ -42,6 +42,23 @@ sub {
   display: grid;
 }
 
+.flex {
+  display: flex;
+  justify-content: start;
+}
+
+
+
+.answer-display-container {
+  background-color: violet;
+}
+
+.answer-display-container > button {
+  border: 0;
+  padding: 0 0.5rem;
+  background-color: transparent;
+}
+
 .display-screen {
   margin: var(--spacing-size);
   display: flex;
