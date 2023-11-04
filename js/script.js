@@ -64,11 +64,15 @@ const writeHistory = () => {
 }
 
 const updateMemory = () => {
+
   localStorage.setItem("memory", memory);
   writeMemory();
 }
 
-const writeMemory = () => memoryDisplay.textContent = memory;
+const writeMemory = () => {
+  memoryDisplay.textContent = memory;
+
+}
 
 
 const answerDisplay = document.querySelector(".answer-display");
@@ -99,9 +103,9 @@ const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators)
 
-let memory = localStorage.getItem("memory");;
-memory = memory ? memory : "";
-let history = JSON.parse(localStorage.getItem("history"))
+let memory = localStorage.getItem("memory");
+memory = memory ? memory : 0;
+let history = JSON.parse(localStorage.getItem("history"));
 history = history ? history : [];
 
 resetAll();
@@ -148,7 +152,7 @@ memoryStoreBtn.addEventListener("click", () => {
 
 memoryAddBtn.addEventListener("click", () => {
   numToAdd = solveAnswer();
-  memory += numToAdd;
+  memory += parseFloat(numToAdd);
   updateMemory(memory);
 });
 
@@ -158,6 +162,10 @@ memoryMinusBtn.addEventListener("click", () => {
   updateMemory(memory);
 });
 
+memoryClearBtn.addEventListener("click", () => {
+  memory = 0;
+  updateMemory(memory);
+});
 
 binaryBtn.addEventListener("click", () => { 
   const ans = solveAnswer();
