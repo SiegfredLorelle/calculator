@@ -29,6 +29,41 @@ const solveAnswer = () => {
   }
 }
 
+
+const updateHistory = (ans) => {
+  const historyObj = {
+    "input": mainDisplay.textContent,
+    "ans": ans,
+  }
+  history.push(historyObj);
+  
+  localStorage.setItem("history", JSON.stringify(history));
+
+  historyDisplay.replaceChildren();
+
+
+};
+
+const writeHistory = () => {
+  history.forEach(historyInstance => {
+    const trInput = document.createElement("tr");
+    const tdInput = document.createElement("td");
+    const trOutput = document.createElement("tr");
+    const tdOutput = document.createElement("td");
+
+    trInput.appendChild(tdInput);
+    trOutput.appendChild(tdOutput);
+
+    const input = document.createTextNode(historyInstance["input"]); 
+    const ans = document.createTextNode(historyInstance["ans"]); 
+    tdInput.appendChild(input);
+    tdOutput.appendChild(ans);
+
+    historyDisplay.appendChild(trInput);
+    historyDisplay.appendChild(trOutput);
+  });
+}
+
 const answerDisplay = document.querySelector(".answer-display");
 const mainDisplay = document.querySelector(".main-display");
 const memoryDisplay = document.querySelector(".memory-table > tbody");
@@ -57,6 +92,7 @@ let history = JSON.parse(localStorage.getItem("history"))
 history = history ? history : [];
 
 resetAll();
+writeHistory();
 
 console.log(memoryDisplay, historyDisplay);
 
@@ -91,19 +127,7 @@ solveBtn.addEventListener("click", () => {
 });
 
 
-const updateHistory = (ans) => {
-  const historyObj = {
-    "input": mainDisplay.textContent,
-    "ans": ans,
-  }
-  history.push(historyObj);
-  
-  localStorage.setItem("history", JSON.stringify(history));
 
-  history.forEach(historyInstance => {
-      console.log(historyInstance["input"], historyInstance["ans"]);
-  });
-}
 
 binaryBtn.addEventListener("click", () => { 
   const ans = solveAnswer();
