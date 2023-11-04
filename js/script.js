@@ -64,7 +64,6 @@ const writeHistory = () => {
 }
 
 const updateMemory = () => {
-  memory = solveAnswer();
   localStorage.setItem("memory", memory);
   writeMemory();
 }
@@ -90,6 +89,10 @@ const changeSignBtn = document.querySelector(".change-sign-btn");
 const binaryBtn = document.querySelector(".binary-btn");
 const solveBtn = document.querySelector(".solve-btn");
 const memoryStoreBtn = document.querySelector(".memory-store-btn");
+const memoryAddBtn = document.querySelector(".memory-add-btn");
+const memoryMinusBtn = document.querySelector(".memory-minus-btn");
+const memoryRecallBtn = document.querySelector(".memory-recall-btn");
+const memoryClearBtn = document.querySelector(".memory-clear-btn");
 
 
 const additionOperators = ["+", "−"];
@@ -138,8 +141,22 @@ solveBtn.addEventListener("click", () => {
 });
 
 
-memoryStoreBtn.addEventListener("click", updateMemory)
+memoryStoreBtn.addEventListener("click", () => {
+  memory = solveAnswer();
+  updateMemory(memory);
+})
 
+memoryAddBtn.addEventListener("click", () => {
+  numToAdd = solveAnswer();
+  memory += numToAdd;
+  updateMemory(memory);
+});
+
+memoryMinusBtn.addEventListener("click", () => {
+  numToAdd = solveAnswer();
+  memory -= numToAdd;
+  updateMemory(memory);
+});
 
 
 binaryBtn.addEventListener("click", () => { 
