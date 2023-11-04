@@ -31,6 +31,8 @@ const solveAnswer = () => {
 
 const answerDisplay = document.querySelector(".answer-display");
 const mainDisplay = document.querySelector(".main-display");
+const memoryDisplay = document.querySelector(".memory-table > tbody");
+const historyDisplay = document.querySelector(".history-table > tbody");
 const numBtns = document.querySelectorAll(".num-btn");
 const allClearBtn = document.querySelector(".ac-btn");
 const backBtn = document.querySelector(".back-btn");
@@ -48,9 +50,15 @@ const solveBtn = document.querySelector(".solve-btn");
 
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
-const operators = additionOperators.concat(multiplicationOperators);
+const operators = additionOperators.concat(multiplicationOperators)
+
+let memory;
+let history = JSON.parse(localStorage.getItem("history"))
+history = history ? history : [];
 
 resetAll();
+
+console.log(memoryDisplay, historyDisplay);
 
 numBtns.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -75,8 +83,27 @@ solveBtn.addEventListener("click", () => {
   // console.log("Solving");
   
   ans = solveAnswer();
+  updateHistory(ans);
+  
+  // TODO: Save sa history
+  
   mainDisplay.textContent = ans;
 });
+
+
+const updateHistory = (ans) => {
+  const historyObj = {
+    "input": mainDisplay.textContent,
+    "ans": ans,
+  }
+  history.push(historyObj);
+  
+  localStorage.setItem("history", JSON.stringify(history));
+
+  history.forEach(historyInstance => {
+      console.log(historyInstance["input"], historyInstance["ans"]);
+  });
+}
 
 binaryBtn.addEventListener("click", () => { 
   const ans = solveAnswer();
@@ -214,7 +241,7 @@ const observer = new MutationObserver(() => {
     }
 
   }
-  
+
   solveAnswer();
   // Update prev input length
   prevInputLength = currentDisplayLength;
