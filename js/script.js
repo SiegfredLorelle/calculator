@@ -1,6 +1,6 @@
 const resetAll = () => {
   mainDisplay.textContent = "0";
-  answerDisplay.textContent = "=";
+  answerDisplay.textContent = "= ";
   hasDeciPoint = false;
   console.log("resetting");
   // TODO: Fetch current memory
@@ -20,7 +20,7 @@ const solveAnswer = () => {
   }
   try {
     ans = parseFloat(eval(expression).toPrecision(12));
-    answerDisplay.textContent = `=${ans}`;
+    answerDisplay.textContent = `= ${ans}`;
     return ans;
   }
   catch {
@@ -53,7 +53,7 @@ const writeHistory = () => {
     trInput.appendChild(tdInput);
     trOutput.appendChild(tdOutput);
 
-    const input = document.createTextNode(historyInstance["input"]); 
+    const input = document.createTextNode(`${historyInstance["input"]} =`); 
     const ans = document.createTextNode(historyInstance["ans"]); 
     tdInput.appendChild(input);
     tdOutput.appendChild(ans);
@@ -63,9 +63,18 @@ const writeHistory = () => {
   });
 }
 
+const updateMemory = () => {
+  memory = solveAnswer();
+  localStorage.setItem("memory", memory);
+  writeMemory();
+}
+
+const writeMemory = () => memoryDisplay.textContent = memory;
+
+
 const answerDisplay = document.querySelector(".answer-display");
 const mainDisplay = document.querySelector(".main-display");
-const memoryDisplay = document.querySelector(".memory-table > tbody");
+const memoryDisplay = document.querySelector(".memory-table > tbody > tr > td > span");
 const historyDisplay = document.querySelector(".history-table > tbody");
 const numBtns = document.querySelectorAll(".num-btn");
 const allClearBtn = document.querySelector(".ac-btn");
@@ -80,18 +89,21 @@ const reciprocalBtn = document.querySelector(".reciprocal-btn");
 const changeSignBtn = document.querySelector(".change-sign-btn");
 const binaryBtn = document.querySelector(".binary-btn");
 const solveBtn = document.querySelector(".solve-btn");
+const memoryStoreBtn = document.querySelector(".memory-store-btn");
 
 
 const additionOperators = ["+", "−"];
 const multiplicationOperators = ["×", "÷",];
 const operators = additionOperators.concat(multiplicationOperators)
 
-let memory;
+let memory = localStorage.getItem("memory");;
+memory = memory ? memory : "";
 let history = JSON.parse(localStorage.getItem("history"))
 history = history ? history : [];
 
 resetAll();
 writeHistory();
+writeMemory();
 
 console.log(memoryDisplay, historyDisplay);
 
@@ -125,6 +137,8 @@ solveBtn.addEventListener("click", () => {
   mainDisplay.textContent = ans;
 });
 
+
+memoryStoreBtn.addEventListener("click", updateMemory)
 
 
 
@@ -231,9 +245,9 @@ const findLastTerm = (input) => {
 }
 
 const preciseMultiplication = (num1, num2) => {
-  const multiplier = 10**12;
+  const multiplier = 10 ** 12;
   const result = (num1 * multiplier) * (num2 * multiplier);
-  return result / (multiplier**2);
+  return result / (multiplier ** 2);
 }
 
 
