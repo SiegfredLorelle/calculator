@@ -24,6 +24,10 @@ body {
 
 }
 
+body > * {
+  overflow: hidden;
+}
+
 aside {
   width: 20%;
 }
@@ -65,15 +69,16 @@ aside > table > tbody {
   text-align: right;
 }
 
-aside > table > tbody > tr:nth-child(odd) > td {
+aside > table > tbody > tr > td {
+  font-size: var(--main-display-size);
+}
+
+aside > table.history-table > tbody > tr:nth-child(odd) > td {
   /* color: pink; */
+  padding-top: var(--spacing-size);
   font-size: var(--memory-display-size);
 }
 
-aside > table > tbody > tr:nth-child(even) > td {
-  font-size: var(--main-display-size);
-  padding-bottom: var(--spacing-size);
-}
 
 .grid {
   display: grid;
