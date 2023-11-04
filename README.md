@@ -4,8 +4,6 @@
 ---
 
 ## TODOs
-- equals (test floating pt impercision)
-- memory funcs (Ms)
 - history and memory
     - color of inputs sa history
     - clear history and memory
