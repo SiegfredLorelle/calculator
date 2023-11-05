@@ -31,10 +31,16 @@ const solveAnswer = () => {
 
 
 const updateHistory = (ans) => {
+  if (mainDisplay.textContent === history[0]["input"] && ans === history[0]["ans"]) {
+    return;
+  }
+
   const historyObj = {
     "input": mainDisplay.textContent,
     "ans": ans,
   }
+
+
   history.unshift(historyObj);
   
   localStorage.setItem("history", JSON.stringify(history));
