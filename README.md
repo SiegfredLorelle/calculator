@@ -4,7 +4,7 @@
 ---
 
 ## TODOs
-- overflow ng display
+- overflow ng display (limit max chars)
 - close menu pag pumindot sa labas
 - add commas
 - error with 3x. sqr->root
@@ -12,4 +12,3 @@
 - ung negative kapag nag memory recall maling sign
 - space kada operator sa history
 - favicon
-- css on click
