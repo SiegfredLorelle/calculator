@@ -131,6 +131,7 @@ button {
   font-weight: 800;
   padding-bottom: 0.2rem;
   font-size: var(--xxs-fs);
+  cursor: pointer;
 }
 
 button > i {
