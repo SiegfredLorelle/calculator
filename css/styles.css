@@ -286,31 +286,35 @@ aside .menu-btn:hover {
 
 }
 
-.buttons-container > button {
-  border-radius: 15px;
-  background-color: var(--btn-clr);
-  color: #dbdde2;
-  /* padding: 10px; */
-}
 
 .buttons-container > button:hover {
   background-color: var(--btn--highlight-clr);
 }
 
-.buttons-container > button.num-btn {
-  background-color: var(--btn-num-clr);
+.buttons-container > button, 
+.buttons-container > button:active {
+  border-radius: 15px;
+  background-color: var(--btn-clr);
+  color: #dbdde2;
 }
+
 .buttons-container > button.num-btn:hover {
   background-color: var(--btn-num-highlight-clr);
 }
-
-.buttons-container > button.solve-btn {
-  background-color: var(--btn-equals-clr);
-  color: var(--btn-clr);
+.buttons-container > button.num-btn,
+.buttons-container > button.num-btn:active {
+  background-color: var(--btn-num-clr);
 }
+
 .buttons-container > button.solve-btn:hover {
   background-color: var(--btn-equals-highlight-clr);
 }
+.buttons-container > button.solve-btn,
+.buttons-container > button.solve-btn:active {
+  background-color: var(--btn-equals-clr);
+  color: var(--btn-clr);
+}
+
 /* 
 .row > button {
   width: 100%;
