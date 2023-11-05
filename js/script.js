@@ -31,7 +31,7 @@ const solveAnswer = () => {
 
 
 const updateHistory = (ans) => {
-  if (mainDisplay.textContent === history[0]["input"] && ans === history[0]["ans"]) {
+  if (history.length && mainDisplay.textContent === history[0]["input"] && ans === history[0]["ans"]) {
     return;
   }
 
@@ -111,8 +111,8 @@ const operators = additionOperators.concat(multiplicationOperators)
 
 let memory = localStorage.getItem("memory");
 memory = memory ? memory : 0;
-let history = JSON.parse(localStorage.getItem("history"));
-history = history ? history : [];
+let history = localStorage.getItem("history");
+history = history ? JSON.parse(history) : [];
 
 resetAll();
 writeHistory();

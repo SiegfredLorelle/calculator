@@ -17,7 +17,7 @@
 
   --bg-clr: #18191a;
   --btn-clr: #242526;
-  --btn-disabled-clr: #575858;
+  /* --btn-disabled-clr: #575858; */
   --btn--highlight-clr:rgb(43, 45, 46);
   --btn-num-clr: #353535;
   --btn-num-highlight-clr:rgb(65, 65, 65);
@@ -42,9 +42,9 @@
 
 body {
   display: flex;
-  height: 100dvh;
+  min-height: 100dvh;
   font-family: var(--display-font-family);
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: var(--bg-clr);
 }
 
@@ -55,6 +55,7 @@ body > * {
 
 button {
   border: 0;
+  background-color: transparent;
 }
 
 aside {
@@ -72,13 +73,17 @@ aside {
 }
 
 aside.desktop {
-  width: 25%;
+  max-width: 25dvw;
   position: relative;
   background-color: var(--bg-clr);
 }
+
+aside.desktop > .menu-btn-container {
+  display: none;
+}
 aside.desktop > .menu-btn-container > .menu-btn {
   background-color: var(--bg-clr);
-  color: var(--btn-disabled-clr);
+  /* color: var(--btn-disabled-clr); */
 
 }
 
@@ -143,6 +148,7 @@ button > i {
 aside > table {
   width: 100%;
   direction: ltr;
+  padding: 0.5rem;
   
   position: relative;
 }
@@ -151,13 +157,27 @@ aside > table > thead {
   text-align: left;
 }
 
+aside > table > thead > tr > th > button {
+  color: var(--text-main-clr);
+  border-radius: 20px;
+  padding: 0.75rem;
+  font-size: var(--xxs-fs);
+}
+
+aside > table > thead > tr > th > button:hover {
+  background-color: var(--btn-num-highlight-clr);
+}
+
 aside > table > tbody {
   text-align: right;
 }
 
-aside > table > thead > tr > th,
-aside > table > tbody > tr > td {
+aside > table > thead > tr > th {
   font-size: var(--reg-fs);
+}
+
+aside > table > tbody > tr > td {
+  font-size: var(--s-fs);
 }
 
 aside > table.history-table > tbody > tr:nth-child(odd) > td {
@@ -242,9 +262,9 @@ aside .menu-btn:hover {
   text-align: right;
   font-size: var(--xxl-fs);
   font-style: italic;
-  padding: 2rem;
+  padding: 0 0.75rem;
   width: 100%;
-  align-self: end;
+  /* align-self: end; */
   
 }
 
@@ -269,7 +289,7 @@ aside .menu-btn:hover {
   border-radius: 15px;
   background-color: var(--btn-clr);
   color: #dbdde2;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .buttons-container > button:hover {

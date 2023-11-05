@@ -6,7 +6,6 @@
 ## TODOs
 - history and memory
     - clear history and memory
-    - do no add to history kapag same
 - shake screen kapag error
 - overflow ng display
 - close menu pag pumindot sa labas
