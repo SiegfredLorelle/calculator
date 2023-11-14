@@ -3,7 +3,6 @@ const resetAll = () => {
   answerDisplay.textContent = "= ";
   hasDeciPoint = false;
   console.log("resetting");
-  // TODO: Fetch current memory
 } 
 
 const deleteLastInput = () => {
