@@ -11,4 +11,3 @@
 - nakakapag type after e raised to
 - ung negative kapag nag memory recall maling sign
 - space kada operator sa history
-- favicon
